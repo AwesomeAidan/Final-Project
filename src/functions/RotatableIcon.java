@@ -15,7 +15,7 @@ import javax.swing.ImageIcon;
  * RotatableIcon.java - allows you to change the orientation of an Icon by 
  * rotating the Icon before it is painted
  *
- * @author A.Randell and D. Meyer
+ * @author A.Randell 
  * @since January 27th 2022
  */
 public class RotatableIcon implements Icon 

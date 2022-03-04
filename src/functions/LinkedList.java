@@ -19,7 +19,7 @@ import java.lang.reflect.Array;
  *                 |                                           |
  *                head                                        tail
  *
- * @author A. Randell and D. Meyer
+ * @author A. Randell 
  * @param <T> The generic data type used in the class
  * @since 8-Dec-2021, 11:58:01 AM
  */

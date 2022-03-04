@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRootPane;
 import javax.swing.Timer;
 import static userinterfaces.MainMenuForm.countdown;
 import static userinterfaces.MainMenuForm.delay;
@@ -26,7 +27,7 @@ import static userinterfaces.MainMenuForm.middle_name;
  * recursive method, implements abstract methods, instatiates other classes,
  * creates an array, and does lot's of other operations.
  *
- * @author A.randell and D.Meyer
+ * @author A.randell 
  * @since November 2nd 2021
  */
 public class GameplayForm extends javax.swing.JFrame {
@@ -51,6 +52,7 @@ public class GameplayForm extends javax.swing.JFrame {
      * a 3 second timer. When the timer ends, the game begins
      */
     public GameplayForm() {
+        setUndecorated(true);
         initializing();
 
         // Timer with a one second delay that calls the the start timer method
@@ -75,11 +77,11 @@ public class GameplayForm extends javax.swing.JFrame {
         // Places J Frame into the center of the screen and makes it unresizable
         setLocationRelativeTo(null);
         setResizable(false);
-
-        // Sets the Jframe to it's largest state
+        
+        // Sets the Jframe to its largest state
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-        // Set background color
+        // Sets background color to white
         this.setBackground(FRAME_BACKGROUND);
         this.getContentPane().setBackground(Color.white);
 
@@ -249,10 +251,10 @@ public class GameplayForm extends javax.swing.JFrame {
             // A JOptionPane is created that allows the user to retry or to quit
             // The options array is used in this, depending on what choice the
             // user makes will affect the value of choice
-            int choice = JOptionPane.showOptionDialog(null, "Clicked "
-                    + clickCount + " images with "
-                    + imageCount + " images left on screen and " + missCount
-                    + " missed clicks. \nDo you wish to retry?",
+            int choice = JOptionPane.showOptionDialog(null, "Images Left: "
+                    + imageCount + "\nClicked Images: "
+                    + clickCount + "\nMissed Clicks: " + missCount
+                    + "\n\bDo you wish to retry?",
                     "Clicky Clicky 3000 Round Review",
                     JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                     options, options[0]);

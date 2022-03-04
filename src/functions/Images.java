@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 /**
  * Images.java - tools for working with images
  *
- * @author A.Randell D. Meyer
+ * @author A.Randell 
  * @since January 27th 2022
  */
 public class Images 

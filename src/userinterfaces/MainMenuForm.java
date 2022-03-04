@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
  * Main menu for Clicky Clicky 3000. Passes global variables to GameplayForm.
  * Allows the user to manipulate the settings of their game.
  *
- * @author A.randell and D. Meyer
+ * @author A.randell 
  * @since November 2nd 2021
  */
 public class MainMenuForm extends javax.swing.JFrame {

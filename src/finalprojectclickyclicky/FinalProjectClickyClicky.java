@@ -7,7 +7,7 @@ import userinterfaces.MainMenuForm;
 /** 
 * FinalProjectClickyClicky.java - 
 *
-* @author Aidan Randell, Darien Meyer
+* @author Aidan Randell
 * @since 26-Oct-2021 
 */
 public class FinalProjectClickyClicky {

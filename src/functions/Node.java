@@ -15,7 +15,7 @@ package functions;
  *                |              |----> next
  *                +--------------+
  *
- * @author A. Randell and D. Randell
+ * @author A. Randell 
  * @param <T> The generic data type used in the class
  * @since 8-Dec-2021, 11:58:50 AM
  */
