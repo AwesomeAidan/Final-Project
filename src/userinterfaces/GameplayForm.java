@@ -19,8 +19,11 @@ import javax.swing.Timer;
 import static userinterfaces.MainMenuForm.countdown;
 import static userinterfaces.MainMenuForm.delay;
 import static userinterfaces.MainMenuForm.first_name;
+import static userinterfaces.MainMenuForm.image_height;
+import static userinterfaces.MainMenuForm.image_width;
 import static userinterfaces.MainMenuForm.last_name;
 import static userinterfaces.MainMenuForm.middle_name;
+
 
 /**
  * Game frame for Clicky Clicky 3000. Creates multiple timers, a linked list, a
@@ -43,8 +46,6 @@ public class GameplayForm extends javax.swing.JFrame {
     private static int missCount;            // Tracks the number of misses
     private final int FRAME_WIDTH = 1900;    // Width of the JFrame
     private final int FRAME_HEIGHT = 1050;   // Height of the JFrame
-    private final int IMAGE_WIDTH = 50;      // Width of the image labels
-    private final int IMAGE_HEIGHT = 50;     // Height of the image labels
     private final Color FRAME_BACKGROUND = new Color(255, 255, 255); // Frame color
 
     /* 
@@ -178,9 +179,7 @@ public class GameplayForm extends javax.swing.JFrame {
 
         // Adds a mouse listener for missed clicks
         this.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {
-            }
-
+            public void mouseClicked(MouseEvent e) {}
             public void mousePressed(MouseEvent e) {
                 // When the jrame is clicked, missed clicks add one
                 missCount++;
@@ -189,15 +188,9 @@ public class GameplayForm extends javax.swing.JFrame {
                         + imageCount + " images currently on screen and " + missCount
                         + " missed clicks");
             }
-
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            public void mouseExited(MouseEvent e) {
-            }
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
         });
 
         // Countdown timer with a one second delay
@@ -254,7 +247,7 @@ public class GameplayForm extends javax.swing.JFrame {
             int choice = JOptionPane.showOptionDialog(null, "Images Left: "
                     + imageCount + "\nClicked Images: "
                     + clickCount + "\nMissed Clicks: " + missCount
-                    + "\n\bDo you wish to retry?",
+                    + "\nDo you wish to retry?",
                     "Clicky Clicky 3000 Round Review",
                     JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                     options, options[0]);
@@ -331,8 +324,8 @@ public class GameplayForm extends javax.swing.JFrame {
      */
     private void clickyRecursion(double time) {
         // Create a random location on the frame
-        int x = (int) ((((double) (FRAME_WIDTH - IMAGE_WIDTH)) + 1d) * Math.random());
-        int y = (int) ((((double) (FRAME_HEIGHT - IMAGE_HEIGHT)) + 1d) * Math.random());
+        int x = (int) ((((double) (FRAME_WIDTH - image_width)) + 1d) * Math.random());
+        int y = (int) ((((double) (FRAME_HEIGHT - image_height)) + 1d) * Math.random());
 
         // Creates a string that is the path to the image
         String filename = first_name
@@ -347,26 +340,17 @@ public class GameplayForm extends javax.swing.JFrame {
 
         // Adds a mouse listener to the label 
         label.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {
-            }
-
+            public void mouseClicked(MouseEvent e) {}
             public void mousePressed(MouseEvent e) {
                 // Passes the label to the mouseclick methid when the label is 
                 // pressed
                 mouseClick(label);
             }
-
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            public void mouseExited(MouseEvent e) {
-            }
-
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
         });
-
+        
         // If time equals zero
         if (time <= 0) {
             // Basecase
@@ -374,7 +358,7 @@ public class GameplayForm extends javax.swing.JFrame {
             imageCount++;
 
             // The label is placed in its random location and its bounds are set
-            label.setBounds(x, y, IMAGE_WIDTH, IMAGE_HEIGHT);
+            label.setBounds(x, y, image_width, image_width);
 
             // Set score label is updated with the new imageCount value
             labelScore.setText("Clicked " + clickCount + " images with "
