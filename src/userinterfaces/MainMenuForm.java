@@ -1,8 +1,6 @@
 package userinterfaces;
 
 import functions.Images;
-
-import javafx.beans.value.ObservableValue;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
@@ -22,10 +20,10 @@ public class MainMenuForm extends javax.swing.JFrame {
     private final int HARD = 450;// Sets the hard value(.45 seconds)
     private final int IMPOSSIBLE = 10; // Sets the impossible value (.01 seconds)
     
-    private final int TINY = 15;
-    private final int SMALL = 25;
-    private final int REGULAR = 50;
-    private final int LARGE = 75;
+    private final int TINY = 15;  // Sets size of lables to 15
+    private final int SMALL = 25; // Sets size of lables to 25
+    private final int REGULAR = 50; // Sets size of lables to 50
+    private final int LARGE = 75; // Sets size of lables to 75
 
     public static int countdown = 15;     // Countdown time choosen by the user
     // Default value is 15 seconds
@@ -321,7 +319,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         else {
             // Create a joptionpane that informs the suer they need to choose 
             // an image
-            JOptionPane.showMessageDialog(null, "Please Choose an Image",
+            JOptionPane.showMessageDialog(null, "Please Choose a color",
                      "Clicly Clicky Error", DO_NOTHING_ON_CLOSE);
         }
 

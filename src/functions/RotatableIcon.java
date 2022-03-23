@@ -1,6 +1,6 @@
 
 /** Required package class namespace */
-package rotateimage;
+package functions;
 
 /** Required imports */
 import java.awt.Component;

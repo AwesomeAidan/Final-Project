@@ -3,6 +3,8 @@ package userinterfaces;
 import functions.Images;
 import functions.LinkedList;
 import java.awt.Color;
+import static java.awt.Color.GREEN;
+import static java.awt.Color.RED;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -113,8 +115,9 @@ public class GameplayForm extends javax.swing.JFrame {
         int x = (width / 2) - (w / 2);
         int y = (height / 2) - (h / 2);
 
-        // Sets the location of label countdown
+        // Sets the location of label countdown as well as color
         labelCountdown.setBounds(x, y, w, h);
+        labelCountdown.setForeground(GREEN);
     }
 
     /**
@@ -232,8 +235,19 @@ public class GameplayForm extends javax.swing.JFrame {
         String time = String.valueOf(countdown);
         labelTimer.setText("Time Left: " + time);
 
+        if(countdown == 3){ // Alerts the user they have 3 seconds left 
+            labelCountdown.setForeground(RED);
+            labelCountdown.setVisible(true);
+            labelCountdown.setText("3");
+        }
+        else if(countdown == 2){ // Alerts the user they have 2 seconds left 
+            labelCountdown.setText("2");
+        }
+        else if(countdown == 1){ // Alerts the user they have 1 second left 
+            labelCountdown.setText("1");
+        }
         // If the countdown equals or is less than 0(When the game ends)
-        if (countdown <= 0) {
+        else if (countdown <= 0) {
             // Both active timers stop
             lengthOfGame.stop();
             timer.stop();
@@ -327,29 +341,8 @@ public class GameplayForm extends javax.swing.JFrame {
         int x = (int) ((((double) (FRAME_WIDTH - image_width)) + 1d) * Math.random());
         int y = (int) ((((double) (FRAME_HEIGHT - image_height)) + 1d) * Math.random());
 
-        // Creates a string that is the path to the image
-        String filename = first_name
-                + middle_name
-                + last_name;
-
-        // Create a JLabel, sets the icon of the jlabel to the image choosen 
-        // by the user and then adds the user
-        JLabel label = new JLabel();
-        label.setIcon(new ImageIcon(getClass().getResource(filename)));
-        this.getContentPane().add(label);
-
-        // Adds a mouse listener to the label 
-        label.addMouseListener(new MouseListener() {
-            public void mouseClicked(MouseEvent e) {}
-            public void mousePressed(MouseEvent e) {
-                // Passes the label to the mouseclick methid when the label is 
-                // pressed
-                mouseClick(label);
-            }
-            public void mouseReleased(MouseEvent e) {}
-            public void mouseEntered(MouseEvent e) {}
-            public void mouseExited(MouseEvent e) {}
-        });
+        // The image 
+        JLabel label = clickyGeneration();
         
         // If time equals zero
         if (time <= 0) {
@@ -375,6 +368,36 @@ public class GameplayForm extends javax.swing.JFrame {
     }
 
     /**
+     * Creates a label that gets placed in a  linkedlist. This label then gets 
+     * filled with the image Chosen by the suer in the main-menu form. 
+     * @return 
+     */
+    public JLabel clickyGeneration() {
+        // Creates a string that is the path to the image
+        String filename = first_name
+                + middle_name
+                + last_name;
+        // Create a JLabel, sets the icon of the jlabel to the image choosen
+        // by the user and then adds the user
+        JLabel label = new JLabel();
+        label.setIcon(new ImageIcon(getClass().getResource(filename)));
+        this.getContentPane().add(label);
+        // Adds a mouse listener to the label
+        label.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+                // Passes the label to the mouseclick methid when the label is
+                // pressed
+                mouseClick(label);
+            }
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
+        });
+        return label;
+    }
+
+    /**
      * The action that should occur when the user clicks a label (image)
      *
      * @param target the specific label object the mouse clicked on
@@ -397,7 +420,7 @@ public class GameplayForm extends javax.swing.JFrame {
             this.getContentPane().remove(label);    // Remove from container            
             imageList.remove(location);             // Remove from list
 
-            // Update the title of the form
+            // Updates the tracking label
             labelScore.setText("Clicked " + clickCount + " images with "
                     + imageCount + " images currently on screen and " + missCount
                     + " missed clicks");
