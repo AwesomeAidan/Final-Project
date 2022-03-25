@@ -478,8 +478,8 @@ public class MainMenuForm extends javax.swing.JFrame {
     private void initializing() {
         initComponents();
 
-        // Places the frame in the center of the screen, sets it to unresizable
-        // and makes the frame visible
+        // Places the frame in the center of the screen, sets it to unresizable,
+        // the frame visible, and adds mouse listeners to the labels.
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -494,6 +494,7 @@ public class MainMenuForm extends javax.swing.JFrame {
         // Creates a string that holds the pathway to wachs image
         // Sets the icon of jLabelWachs to the wachs image
         // Resizes the image in jLabelwachs to fit the bounds
+        // Adds a mous listener to the labels
         String redPath = first_name + "redSquare.jpg";
         jLabelRed.setIcon(new ImageIcon(getClass().getResource(redPath)));
         Images.resizeToContainer(jLabelRed);

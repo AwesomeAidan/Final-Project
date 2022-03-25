@@ -254,10 +254,8 @@ public class GameplayForm extends javax.swing.JFrame {
             // Both active timers stop
             lengthOfGame.stop();
             timer.stop();
-
-            // JFrames visibility is set to false
-            this.setVisible(false);
-
+            
+            this.setEnabled(false);
             // A JOptionPane is created that allows the user to retry or to quit
             // The options array is used in this, depending on what choice the
             // user makes will affect the value of choice
