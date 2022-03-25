@@ -38,14 +38,17 @@ import static userinterfaces.MainMenuForm.middle_name;
 public class GameplayForm extends javax.swing.JFrame {
 
     // Properties (Global Variables)
-    private LinkedList<JLabel> imageList;    // Creates a Linked List object
+    
     Timer timer;                             // Creation of the game timer
     Timer lengthOfGame;                      // Timer that calls to clickyRecursion
     Timer startCountdown;                    // Creation of the start timer
     private int startTimer = 3;              // Value of the start timer
+    
+    private LinkedList<JLabel> imageList;    // Creates a Linked List object
     private static int imageCount;           // Tracks the images being displayed
     private static int clickCount;           // Track how many images clicked
     private static int missCount;            // Tracks the number of misses
+    
     private final int FRAME_WIDTH = 1900;    // Width of the JFrame
     private final int FRAME_HEIGHT = 1050;   // Height of the JFrame
     private final Color FRAME_BACKGROUND = new Color(255, 255, 255); // Frame color
@@ -337,15 +340,14 @@ public class GameplayForm extends javax.swing.JFrame {
      * Recursive method which determines when to create a new "clicky"
      */
     private void clickyRecursion(double time) {
-        // Create a random location on the frame
-        int x = (int) ((((double) (FRAME_WIDTH - image_width)) + 1d) * Math.random());
-        int y = (int) ((((double) (FRAME_HEIGHT - image_height)) + 1d) * Math.random());
-
-        // The image 
-        JLabel label = clickyGeneration();
-        
         // If time equals zero
         if (time <= 0) {
+            // Create a random location on the frame
+            int x = (int) ((((double) (FRAME_WIDTH - image_width)) + 1d) * Math.random());
+            int y = (int) ((((double) (FRAME_HEIGHT - image_height)) + 1d) * Math.random());
+
+            // The label is created
+            JLabel label = clickyGeneration();
             // Basecase
             // Image count increases
             imageCount++;
@@ -368,8 +370,9 @@ public class GameplayForm extends javax.swing.JFrame {
     }
 
     /**
-     * Creates a label that gets placed in a  linkedlist. This label then gets 
-     * filled with the image Chosen by the suer in the main-menu form. 
+     * Creates a label that gets placed in a linkedlist in the recursive method.
+     * This label then gets filled with the image Chosen by the user in the 
+     * main-menu form. 
      * @return 
      */
     public JLabel clickyGeneration() {

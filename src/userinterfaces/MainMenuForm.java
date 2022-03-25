@@ -1,6 +1,8 @@
 package userinterfaces;
 
 import functions.Images;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
@@ -495,15 +497,67 @@ public class MainMenuForm extends javax.swing.JFrame {
         String redPath = first_name + "redSquare.jpg";
         jLabelRed.setIcon(new ImageIcon(getClass().getResource(redPath)));
         Images.resizeToContainer(jLabelRed);
+        jLabelRed.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+                // Sets the other two radio buttons to unselected
+                rBtnRed.setSelected(true);
+                rBtnBlue.setSelected(false);
+                rBtnSquare.setSelected(false);
 
+                 // Sets the pathway to the image selected
+                middle_name = "redSquare";
+                last_name = ".jpg";
+                
+            }
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
+            });
+        
         //Repeats this code with the other two images
         String squarePath = first_name + "square.png";
         jLabelSquare.setIcon(new ImageIcon(getClass().getResource(squarePath)));
         Images.resizeToContainer(jLabelSquare);
+        jLabelSquare.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+                // Sets the other two radio buttons to unselected
+                rBtnRed.setSelected(false);
+                rBtnBlue.setSelected(false);
+                rBtnSquare.setSelected(true);
+
+                 // Sets the pathway to the image selected
+                middle_name = "square";
+                last_name = ".png";
+                
+            }
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
+            });
 
         String bluePath = first_name + "blueSquare.png";
         jLabelBlue.setIcon(new ImageIcon(getClass().getResource(bluePath)));
         Images.resizeToContainer(jLabelBlue);
+        jLabelBlue.addMouseListener(new MouseListener() {
+            public void mouseClicked(MouseEvent e) {}
+            public void mousePressed(MouseEvent e) {
+                // Sets the other two radio buttons to unselected
+                rBtnRed.setSelected(false);
+                rBtnBlue.setSelected(true);
+                rBtnSquare.setSelected(false);
+
+                 // Sets the pathway to the image selected
+                middle_name = "blueSquare";
+                last_name = ".png";
+                
+            }
+            public void mouseReleased(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {}
+            });
+
     }
 
     /**
